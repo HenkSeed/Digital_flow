@@ -34,11 +34,15 @@ body {
 }
 .transparent {
 	/* чёрный фон гаснет замедленно */
-	transition: all 0.5s ease;
+	transition: all 1.5s ease;
 	/* делает прозрачным фон строки header-а */
-	/* и чёрным цветом иконки header-a */
 	background: rgba(25, 26, 30, 0);
 }
+.black {
+	transition: all 1.5s ease;
+	background: rgba(25, 26, 30, 1);
+}
+
 .header_wrapper {
 	height: 100%;
 	display: flex;
@@ -51,6 +55,20 @@ body {
 .header_burger__menu {
 	cursor: pointer;
 }
+.burger_color {
+	fill: black;
+}
+.logo-color {
+	stroke: black;
+}
+.logo_fill__text {
+	fill: black;
+}
+
+.button:hover {
+	background: linear-gradient(90deg, #074d88 0%, #61b3c9 100%);
+}
+
 .section-main {
 	width: 1920px;
 	height: 1030px;
@@ -582,7 +600,8 @@ body {
 }
 
 .hidden {
-	display: none;
+	/* display: none; */
+	visibility: hidden;
 }
 .burger {
 	/* width: 1920px; */
@@ -594,6 +613,17 @@ body {
 	top: 0;
 	z-index: 100;
 }
+.burger.fade {
+	transition: all 0.8s ease 0s;
+	opacity: 0;
+	visibility: hidden;
+}
+.burger.appear {
+	opacity: 1;
+	transition: all 0.8s ease 0s;
+	visibility: visible;
+}
+
 .burger_wrapper {
 	width: 1920px;
 	height: 100%;
@@ -646,7 +676,7 @@ body {
 	margin-bottom: 130px;
 	border: 1px solid #000000;
 	box-sizing: border-box;
-	background: linear-gradient(90deg, #074d88 0%, #61b3c9 100%);
+	background: rgba(0, 0, 0, 0);
 	cursor: pointer;
 }
 .burger_button__text {
@@ -677,6 +707,19 @@ body {
 	z-index: 50;
 	/* text-align: center; */
 }
+.section-request__success.fade_left {
+	transition: all 0.8s ease 0s;
+	transform: translateX(-100vw);
+	opacity: 0;
+	visibility: hidden;
+}
+.section-request__success.appear_left {
+	transition: all 0.8s ease 0s;
+	transform: translateX(0vw);
+	opacity: 1;
+	visibility: visible;
+}
+
 .success_wrapper {
 	position: relative;
 	width: 1920px;
@@ -787,6 +830,19 @@ body {
 	z-index: 50;
 	/* margin: auto; */
 }
+.section-error.fade_left {
+	transition: all 0.8s ease 0s;
+	transform: translateX(-100vw);
+	opacity: 0;
+	visibility: hidden;
+}
+.section-error.appear_left {
+	transition: all 0.8s ease 0s;
+	transform: translateX(0vw);
+	opacity: 1;
+	visibility: visible;
+}
+
 .error_wrapper {
 	position: relative;
 	width: 1920px;
@@ -845,6 +901,10 @@ body {
 	/* identical to box height */
 	color: #ffffff;
 }
-.section-error_button__arrow {
-	/* margin-left: 42px; */
+/* .section-error_button__arrow {
+	margin-left: 42px;
+} */
+.section_scroll-item__active {
+	fill: none;
+	stroke: #8d8c92;
 }
