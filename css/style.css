@@ -639,7 +639,7 @@ body {
 	width: 751px;
 	height: 1030px;
 	background: #191a1e;
-	border: #ffffff 1px solid;
+	/* border: #ffffff 1px solid; */
 	padding-left: 80px;
 	padding-top: 42px;
 	/* transform: translateX(-50%); */
