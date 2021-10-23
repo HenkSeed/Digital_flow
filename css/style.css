@@ -15,6 +15,7 @@ body {
 .wrapper {
 	/* position: relative; */
 	margin: auto;
+	/* width: 1920px; */
 }
 .container {
 	position: relative;
@@ -65,6 +66,7 @@ body {
 	fill: black;
 }
 
+/* Для всех кнопок */
 .button:hover {
 	background: linear-gradient(90deg, #074d88 0%, #61b3c9 100%);
 }
@@ -704,6 +706,8 @@ body {
 	width: 100%;
 	position: fixed;
 	top: 0px;
+	transition-duration: 0s;
+	transform: translateX(-100vw);
 	z-index: 50;
 	/* text-align: center; */
 }
@@ -827,6 +831,8 @@ body {
 	width: 100%;
 	position: fixed;
 	top: 0;
+	transition-duration: 0s;
+	transform: translateX(-100vw);
 	z-index: 50;
 	/* margin: auto; */
 }
@@ -907,4 +913,49 @@ body {
 .section_scroll-item__active {
 	fill: none;
 	stroke: #8d8c92;
+}
+
+.section_dots-menu {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	/* Оболочка точечного меню не будет мешать взаимодействию с остальными окнами */
+	visibility: hidden;
+}
+.wrapper_dots-menu {
+	position: relative;
+	width: 1920px;
+	height: 100%;
+	margin: 0 auto;
+	height: 1030px;
+	top: 0px;
+}
+
+.dots-menu {
+	position: absolute;
+	top: 300px;
+	right: 200px;
+	visibility: visible;
+	z-index: 130;
+}
+.dots-menu_list {
+	margin: 0;
+	padding: 0;
+}
+.dots-menu_item {
+	list-style: none;
+	width: 15px;
+	height: 15px;
+	margin-bottom: 15px;
+	cursor: pointer;
+	fill: #313035;
+	stroke: #313035;
+}
+.dots-menu_item__active {
+	fill: none;
+	/* stroke: #313035; */
+	stroke: #8d8c92;
+}
+svg {
+	z-index: -1;
 }

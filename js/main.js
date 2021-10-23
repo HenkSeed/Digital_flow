@@ -60,10 +60,56 @@ const sectionMainButton = document.querySelector('.section-main_button');
 // Логотип header-а
 const headerLogoIcon = document.querySelector('.header_logo__icon');
 
-// Доработать функцию обработки точечного меню
-sectionScrollMenu.addEventListener('click', (event) => {
-	event.target.classList.add('section_scroll-item__active');
+// Точечное меню
+const dotsMenuItems = document.querySelectorAll('.dots-menu_item');
+
+// Начала всех экранов страницы (6 шт.)
+// const sectionTops = document.querySelectorAll('.section-top');
+// const scrollTop = window.pageYOffset;
+
+// window.addEventListener('scroll', () => {
+// 	let tops = sectionTops[2].offsetTop;
+// 	// console.log('tops: ', tops - window.pageYOffset);
+// 	if (tops - window.pageYOffset > 100 && tops - window.pageYOffset < 800) {
+// 		console.log('tops: ', tops - window.pageYOffset);
+// 	}
+// 	// console.log(window.pageYOffset);
+// });
+
+// Переход в начало страницы при обновлении страницы
+window.addEventListener('load', () => {
+	document.getElementById('section-main').scrollIntoView({
+		behavior: 'smooth',
+	});
 });
+
+// Обработка нажатия кнопки главного экрана "Спец предложение"
+sectionMainButton.addEventListener('click', (event) => {
+	event.preventDefault();
+	const target = event.currentTarget;
+	const id = target.getAttribute('href').substring(1);
+	document.getElementById(id).scrollIntoView({
+		behavior: 'smooth',
+	});
+	console.log('Reloaded');
+});
+
+// Обработка нажатия кнопки точечного меню
+dotsMenuItems.forEach((dotsMenuItem) => {
+	dotsMenuItem.addEventListener('click', (event) => {
+		event.preventDefault();
+		let id = event.currentTarget.getAttribute('href').substring(1);
+		document.getElementById(id).scrollIntoView({
+			behavior: 'smooth',
+		});
+		dotsMenuItems.forEach((dotsMenuItem) => {
+			dotsMenuItem.classList.remove('dots-menu_item__active');
+		});
+		event.currentTarget.classList.add('dots-menu_item__active');
+	});
+});
+
+// Доработать функцию обработки точечного меню - индикация точками при скроллинге
 
 // Обработка нажатия кнопки логотипа header-а
 headerLogoIcon.addEventListener('click', (event) => {
