@@ -64,17 +64,34 @@ const headerLogoIcon = document.querySelector('.header_logo__icon');
 const dotsMenuItems = document.querySelectorAll('.dots-menu_item');
 
 // Начала всех экранов страницы (6 шт.)
-// const sectionTops = document.querySelectorAll('.section-top');
-// const scrollTop = window.pageYOffset;
+const sectionTops = document.querySelectorAll('.section-top');
+const scrollTop = window.pageYOffset;
 
-// window.addEventListener('scroll', () => {
-// 	let tops = sectionTops[2].offsetTop;
-// 	// console.log('tops: ', tops - window.pageYOffset);
-// 	if (tops - window.pageYOffset > 100 && tops - window.pageYOffset < 800) {
-// 		console.log('tops: ', tops - window.pageYOffset);
-// 	}
-// 	// console.log(window.pageYOffset);
-// });
+// Изменение цвета точек в точечном меню в при скроллинге
+let currentGetAttr = '';
+window.addEventListener('scroll', () => {
+	sectionTops.forEach((sectionTop) => {
+		if (
+			sectionTop.offsetTop - window.pageYOffset > -100 &&
+			sectionTop.offsetTop - window.pageYOffset < 500
+		) {
+			if (currentGetAttr !== sectionTop.getAttribute('id')) {
+				currentGetAttr = sectionTop.getAttribute('id');
+				console.log('currentGetAttr: ', currentGetAttr);
+				// --------------
+				dotsMenuItems.forEach((dotsMenuItem) => {
+					dotsMenuItem.classList.remove('dots-menu_item__active');
+					if (
+						dotsMenuItem.getAttribute('href').substring(1) === currentGetAttr
+					) {
+						dotsMenuItem.classList.add('dots-menu_item__active');
+					}
+				});
+			} else {
+			}
+		}
+	});
+});
 
 // Переход в начало страницы при обновлении страницы
 window.addEventListener('load', () => {
